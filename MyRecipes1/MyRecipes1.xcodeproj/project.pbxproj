@@ -11,6 +11,7 @@
 		D928C0FB2C15EB5600C1F546 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D928C0FA2C15EB5600C1F546 /* ContentView.swift */; };
 		D928C0FD2C15EB5700C1F546 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D928C0FC2C15EB5700C1F546 /* Assets.xcassets */; };
 		D928C1002C15EB5700C1F546 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D928C0FF2C15EB5700C1F546 /* Preview Assets.xcassets */; };
+		D928C1072C15EC6400C1F546 /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D928C1062C15EC6400C1F546 /* RecipeModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		D928C0FA2C15EB5600C1F546 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D928C0FC2C15EB5700C1F546 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D928C0FF2C15EB5700C1F546 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D928C1062C15EC6400C1F546 /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 		D928C0F72C15EB5600C1F546 /* MyRecipes1 */ = {
 			isa = PBXGroup;
 			children = (
+				D928C1082C15EC9700C1F546 /* Model */,
 				D928C0F82C15EB5600C1F546 /* MyRecipes1App.swift */,
 				D928C0FA2C15EB5600C1F546 /* ContentView.swift */,
 				D928C0FC2C15EB5700C1F546 /* Assets.xcassets */,
@@ -65,6 +68,14 @@
 				D928C0FF2C15EB5700C1F546 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D928C1082C15EC9700C1F546 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D928C1062C15EC6400C1F546 /* RecipeModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +150,7 @@
 			files = (
 				D928C0FB2C15EB5600C1F546 /* ContentView.swift in Sources */,
 				D928C0F92C15EB5600C1F546 /* MyRecipes1App.swift in Sources */,
+				D928C1072C15EC6400C1F546 /* RecipeModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
