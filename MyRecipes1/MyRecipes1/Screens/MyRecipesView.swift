@@ -19,7 +19,7 @@ struct MyRecipesView: View {
                 ScrollView (showsIndicators: false){
                     
                     VStack (alignment: .leading) {
-                        Text("Kategorier")
+                        Text("Categories")
                             .font(.caption)
                             .foregroundStyle(Color.gray)
                             .padding(.top)
@@ -29,7 +29,7 @@ struct MyRecipesView: View {
                         }
                         
                         HStack{
-                            Text("Oppskrifter")
+                            Text("Recipes")
                                 .font(.caption)
                                 .foregroundStyle(Color.gray)
                             Spacer()
@@ -47,7 +47,7 @@ struct MyRecipesView: View {
                 .padding(.horizontal)
                 .toolbar {
                     ToolbarItem(placement: .topBarLeading) {
-                        Text("Mine oppskrifter")
+                        Text("My Recipes")
                             .bold()
                             .font(.title2)
                     }

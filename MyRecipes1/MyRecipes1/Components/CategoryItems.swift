@@ -8,7 +8,7 @@ struct CategoryItems: View {
         HStack {
             ForEach(categories) { category in
                 NavigationLink(destination: CategoryDetailView(category: category)) {
-                    VStack {
+                    VStack(alignment: .leading){
                         if let imageData = category.image,
                            let uiImage = UIImage(data: imageData) {
                             Image(uiImage: uiImage)
