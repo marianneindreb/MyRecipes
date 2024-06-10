@@ -156,7 +156,7 @@ struct RecipeDetailView: View {
         //            })
         
         NavigationLink(
-            destination: EditRecipeView(),
+            destination: EditRecipeView(recipe: recipe),
             isActive: $navigateToEditView,
             label: { EmptyView() }
         )
