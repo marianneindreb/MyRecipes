@@ -17,11 +17,16 @@ struct CategoryItems: View {
                                 .frame(width: 110, height: 90)
                                 .cornerRadius(10)
                         } else {
-                            Rectangle()
-                                .frame(width: 110, height: 90)
-                                .cornerRadius(10)
-                                .foregroundStyle(Color.gray)
-                                .opacity(0.1)
+                            ZStack {
+                                Rectangle()
+                                    .frame(width: 110, height: 90)
+                                    .cornerRadius(10)
+                                    .foregroundStyle(Color.gray)
+                                    .opacity(0.1)
+                                Image(systemName: "photo.badge.plus")
+                                    .font(.system(size: 18))
+                                    .foregroundColor(.black)
+                            }
                         }
                         Text(category.title)
                             .font(.caption)

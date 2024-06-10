@@ -12,57 +12,56 @@ struct MyRecipesView: View {
     
     var body: some View {
         
-        NavigationView {
-            ZStack {
-                Color.bg.edgesIgnoringSafeArea(.all)
+        
+        ZStack {
+            Color.bg.edgesIgnoringSafeArea(.all)
+            
+            ScrollView (showsIndicators: false){
                 
-                ScrollView (showsIndicators: false){
+                VStack (alignment: .leading) {
+                    Text("Categories")
+                        .font(.caption)
+                        .foregroundStyle(Color.gray)
+                        .padding(.top)
                     
-                    VStack (alignment: .leading) {
-                        Text("Categories")
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        CategoryItems()
+                    }
+                    
+                    HStack{
+                        Text("Recipes")
                             .font(.caption)
                             .foregroundStyle(Color.gray)
-                            .padding(.top)
+                        Spacer()
+                        Image(systemName: "magnifyingglass")
+                    }
+                    
+                    ForEach(recipes) { recipe in
+                        RecipeCardView(recipe: recipe)
                         
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            CategoryItems()
-                        }
-                        
-                        HStack{
-                            Text("Recipes")
-                                .font(.caption)
-                                .foregroundStyle(Color.gray)
-                            Spacer()
-                            Image(systemName: "magnifyingglass")
-                        }
-                        
-                        ForEach(recipes) { recipe in
-                            RecipeCardView(recipe: recipe)
-                            
-                        }
                     }
                 }
-                
-                
-                .padding(.horizontal)
-                .toolbar {
-                    ToolbarItem(placement: .topBarLeading) {
-                        Text("My Recipes")
-                            .bold()
-                            .font(.title2)
-                    }
-                    ToolbarItem(placement: .topBarTrailing) {
-                        NavigationLink(destination: EditRecipeView()) {
-                            ZStack {
-                                Rectangle()
-                                    .frame(width: 35, height: 35)
-                                    .foregroundStyle(.white)
-                                    .cornerRadius(6)
-                                    .shadow(color: Color.black.opacity(0.1), radius: 4, x: 0, y: 2)
-                                Image(systemName: "plus")
-                                    .font(.system(size: 14))
-                                    .foregroundColor(.black)
-                            }
+            }
+            
+            
+            .padding(.horizontal)
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Text("My Recipes")
+                        .bold()
+                        .font(.title2)
+                }
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink(destination: EditRecipeView()) {
+                        ZStack {
+                            Rectangle()
+                                .frame(width: 35, height: 35)
+                                .foregroundStyle(.white)
+                                .cornerRadius(6)
+                                .shadow(color: Color.black.opacity(0.1), radius: 4, x: 0, y: 2)
+                            Image(systemName: "plus")
+                                .font(.system(size: 14))
+                                .foregroundColor(.black)
                         }
                     }
                 }
@@ -70,10 +69,3 @@ struct MyRecipesView: View {
         }
     }
 }
-
-
-//    #Preview {
-//        MyRecipesView()
-//            .modelContainer(for: Recipe.self, inMemory: true)
-//    }
-

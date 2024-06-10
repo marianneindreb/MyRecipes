@@ -42,10 +42,11 @@ struct EditRecipeView: View {
                     TextField("time", text: $recipe.preparationTime)
                 }
                 Section (header: Text("Category")) {
-                    if categories.isEmpty {
-                        
-                    } else {
-                        Picker("Category", selection: $selectedCategory) {
+                    if !categories.isEmpty {
+                        Picker("Category", selection: Binding(
+                            get: { selectedCategory ?? categories.first },
+                            set: { selectedCategory = $0 }
+                        )) {
                             ForEach(categories) { category in
                                 Text(category.title)
                                     .tag(category as Category?)
@@ -93,8 +94,8 @@ struct EditRecipeView: View {
                 .listRowBackground(Color.clear)
                 .shadow(color: Color.black.opacity(0.2), radius: 4, x: 0, y: 2)
             }
-            .background(Color.bg)  // Set background color directly to List
-            .scrollContentBackground(.hidden)  // Hide default background
+            .background(Color.bg)
+            .scrollContentBackground(.hidden)
             .navigationTitle("Recipe")
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
@@ -117,6 +118,11 @@ struct EditRecipeView: View {
                     recipe.imageData = data
                 }
             }
+            .onAppear {
+                if selectedCategory == nil && !categories.isEmpty {
+                    selectedCategory = categories.first
+                }
+            }
         }
     }
 }
@@ -125,9 +131,9 @@ private extension EditRecipeView {
     func save() {
         modelContext.insert(recipe)
         recipe.category = selectedCategory
-        recipe.category?.image = recipe.imageData
         selectedCategory?.recipes?.append(recipe)
     }
+    
     private func addNewCategory() {
         guard !newCategoryTitle.isEmpty else { return }
         
