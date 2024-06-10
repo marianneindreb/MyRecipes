@@ -2,7 +2,7 @@ import SwiftUI
 import SwiftData
 import PhotosUI
 
-struct EditRecipeDetailView: View {
+struct EditRecipeView: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.modelContext) var modelContext
     
@@ -126,7 +126,7 @@ struct EditRecipeDetailView: View {
     }
 }
 
-private extension EditRecipeDetailView {
+private extension EditRecipeView {
     func save() {
         modelContext.insert(recipe)
         recipe.category = selectedCategory

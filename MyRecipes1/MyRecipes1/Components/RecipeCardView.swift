@@ -5,7 +5,7 @@ struct RecipeCardView: View {
     
     
     var body: some View {
-        NavigationLink(destination: RecipeDetailView()) {
+        NavigationLink(destination: RecipeDetailView(recipe: recipe)) {
             HStack(alignment: .top) {
                 if let imageData = recipe.imageData,
                    let uiImage = UIImage(data: imageData) {
