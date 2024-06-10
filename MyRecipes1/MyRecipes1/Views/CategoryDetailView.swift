@@ -7,42 +7,51 @@ struct CategoryDetailView: View {
     @Query var recipes: [Recipe]
     
     var body: some View {
-        VStack {
-            ForEach(filteredRecipes) { recipe in
-            RecipeCardView(recipe: recipe)
-            }
-            .padding()
-        }
-        .navigationTitle(category.title)
-        .navigationBarBackButtonHidden(true)
-        
-        .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                Button {
-                    dismiss()
-                } label: {
-                    Image(systemName: "arrow.backward.circle.fill")
-                        .symbolRenderingMode(.palette)
-                        .foregroundStyle(.black, .white)
-                        .font(.system(size: 26))
+        ZStack {
+            Color.bg.edgesIgnoringSafeArea(.all)
+            ScrollView {
+                ForEach(filteredRecipes) { recipe in
+                    RecipeCardView(recipe: recipe)
                 }
-                .accessibilityLabel("go back")
+                .padding()
             }
-            ToolbarItem(placement: .topBarTrailing) {
-                Button {
-                    // Edit category image
-                } label: {
-                    ZStack {
-                        Rectangle()
-                            .frame(width: 35, height: 35)
-                            .foregroundStyle(.white)
-                            .cornerRadius(6)
-                            .shadow(color: Color.black.opacity(0.1), radius: 4, x: 0, y: 2)
-                        Image(systemName: "photo")
-                            .font(.system(size: 14))
-                            .foregroundColor(.black)
+            .navigationTitle(category.title)
+            .navigationBarBackButtonHidden(true)
+            
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        ZStack {
+                            Rectangle()
+                                .frame(width: 35, height: 35)
+                                .foregroundStyle(.white)
+                                .cornerRadius(6)
+                                .shadow(color: Color.black.opacity(0.1), radius: 4, x: 0, y: 2)
+                            Image(systemName: "arrow.backward")
+                                .font(.system(size: 14))
+                                .foregroundColor(.black)
+                        }
                     }
+                    .accessibilityLabel("go back")
                 }
+                            ToolbarItem(placement: .topBarTrailing) {
+                                Button {
+                                    // Edit category image
+                                } label: {
+                                    ZStack {
+                                        Rectangle()
+                                            .frame(width: 35, height: 35)
+                                            .foregroundStyle(.white)
+                                            .cornerRadius(6)
+                                            .shadow(color: Color.black.opacity(0.1), radius: 4, x: 0, y: 2)
+                                        Image(systemName: "photo")
+                                            .font(.system(size: 14))
+                                            .foregroundColor(.black)
+                                    }
+                                }
+                            }
             }
         }
     }

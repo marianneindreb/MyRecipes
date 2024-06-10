@@ -30,8 +30,8 @@ struct RecipeCardView: View {
                                 .foregroundStyle(.gray)
                         }
                         Spacer()
-                        Image(systemName: "heart")
-                            .font(.system(size: 18))
+                        Image(systemName: "arrow.forward")
+                            .font(.system(size: 14))
                             .padding(5)
                     }
                     Text(recipe.title)

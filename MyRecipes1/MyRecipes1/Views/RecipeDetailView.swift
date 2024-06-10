@@ -41,16 +41,15 @@ struct RecipeDetailView: View {
                             .padding(.bottom, 1)
                     }
                     Spacer()
-                    Button(action: {
-                        isFavorite.toggle()
-                    }) {
-                        Image(systemName: isFavorite ? "heart.fill" : "heart")
-                            .font(.system(size: 26))
-                            .foregroundColor(.black)
-                    }
+//                    Button(action: {
+//                        isFavorite.toggle()
+//                    }) {
+//                        Image(systemName: isFavorite ? "heart.fill" : "heart")
+//                            .font(.system(size: 26))
+//                            .foregroundColor(.black)
+//                    }
                     
                 }
-                
                 Text(recipe.title)
                     .font(.title)
                     .fontWeight(.bold)
@@ -68,7 +67,7 @@ struct RecipeDetailView: View {
                 Divider()
                 
                 if !recipe.ingredient.isEmpty {
-                    Text("Ingredienser:")
+                    Text("Ingredients:")
                         .font(.subheadline)
                         .bold()
                         .padding(.top, 10)
@@ -78,7 +77,7 @@ struct RecipeDetailView: View {
                 }
                 
                 if !recipe.directions.isEmpty {
-                    Text("Fremgangsmåte:")
+                    Text("Directions:")
                         .font(.subheadline)
                         .bold()
                     Text(recipe.directions)
