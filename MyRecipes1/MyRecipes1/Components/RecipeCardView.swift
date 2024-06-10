@@ -3,7 +3,6 @@ import SwiftUI
 struct RecipeCardView: View {
     let recipe: Recipe
     
-    
     var body: some View {
         NavigationLink(destination: RecipeDetailView(recipe: recipe)) {
             HStack(alignment: .top) {

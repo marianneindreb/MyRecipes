@@ -1,4 +1,3 @@
-
 import SwiftUI
 import SwiftData
 
@@ -35,19 +34,12 @@ struct RecipeDetailView: View {
                 
                 HStack {
                     if let category = recipe.category {
-                        Text(category.title )
+                        Text(category.title)
                             .font(.caption)
                             .foregroundStyle(.gray)
                             .padding(.bottom, 1)
                     }
                     Spacer()
-//                    Button(action: {
-//                        isFavorite.toggle()
-//                    }) {
-//                        Image(systemName: isFavorite ? "heart.fill" : "heart")
-//                            .font(.system(size: 26))
-//                            .foregroundColor(.black)
-//                    }
                     
                 }
                 Text(recipe.title)
@@ -117,12 +109,8 @@ struct RecipeDetailView: View {
             
             ToolbarItem(placement: .topBarTrailing) {
                 Menu {
-                    
                     Button("Edit recipe") {
                         navigateToEditView = true
-                    }
-                    if navigateToEditView {
-                        EditRecipeView()
                     }
                     
                     Button("Delete recipe", role: .destructive) {
@@ -144,21 +132,12 @@ struct RecipeDetailView: View {
                     }
                 }
                 .accessibilityLabel("Menu to edit or delete recipe")
-                
             }
-            
-            
-            
         }
-        //            .navigationDestination(isPresented: $navigateToEditView, destination: {
-        //                EditRecipeDetailView(recipe: recipe)
-        //            })
         
-        NavigationLink(
-            destination: EditRecipeView(recipe: recipe),
-            isActive: $navigateToEditView,
-            label: { EmptyView() }
-        )
+        .navigationDestination(isPresented: $navigateToEditView) {
+            EditRecipeView(recipe: recipe)
+        }
         
         .confirmationDialog(
             "Do you really want to delete this recipe?",
@@ -174,14 +153,6 @@ struct RecipeDetailView: View {
         }
     }
 }
-
-
-
-
-
-
-
-
 
 #Preview {
     do {

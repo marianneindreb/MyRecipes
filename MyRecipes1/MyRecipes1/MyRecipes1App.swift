@@ -12,8 +12,10 @@ import SwiftData
 struct MyRecipes1App: App {
     var body: some Scene {
         WindowGroup {
-            MyRecipesView()
+            NavigationStack {
+                MyRecipesView()
+            }
+            .modelContainer(for: Recipe.self)
         }
-        .modelContainer(for: Recipe.self)
     }
 }
