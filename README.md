@@ -12,4 +12,5 @@ MY Recipes is built using SwiftUI and utilizes SwiftData for reliable data persi
 - **Categorization**: Organize recipes into categories such as breakfast, lunch, dinner, desserts, etc.
 
 
-![MyRecipes_img](https://github.com/marianneindreb/MyRecipes/assets/91476569/cae22bd8-ec6b-4f4f-99e4-31b9f9c1f546)
+
+![MyRecipes_img](https://github.com/marianneindreb/MyRecipes/assets/91476569/b902a37f-5c7a-44ed-90c0-117a7956da51)
