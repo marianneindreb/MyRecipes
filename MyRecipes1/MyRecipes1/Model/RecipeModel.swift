@@ -12,9 +12,10 @@ class Recipe: Identifiable {
     var preparationTime: String
     var directions: String
     var ingredient: String
+    var servings: String
    
     
-    init(title: String = "", shortDescription: String = "", imageData: Data? = nil, category: Category? = nil, preparationTime: String = "", directions: String = "", ingredient: String = "") {
+    init(title: String = "", shortDescription: String = "", imageData: Data? = nil, category: Category? = nil, preparationTime: String = "", directions: String = "", ingredient: String = "", servings: String = "") {
         self.title = title
         self.shortDescription = shortDescription
         self.imageData = imageData
@@ -22,6 +23,7 @@ class Recipe: Identifiable {
         self.preparationTime = preparationTime
         self.directions = directions
         self.ingredient = ingredient
+        self.servings = servings
     }
 }
 

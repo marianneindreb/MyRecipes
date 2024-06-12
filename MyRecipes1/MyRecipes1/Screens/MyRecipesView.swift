@@ -17,7 +17,6 @@ struct MyRecipesView: View {
             Color.bg.edgesIgnoringSafeArea(.all)
             
             ScrollView (showsIndicators: false){
-                
                 VStack (alignment: .leading) {
                     Text("Categories")
                         .font(.caption)
@@ -42,7 +41,6 @@ struct MyRecipesView: View {
                     }
                 }
             }
-            
             
             .padding(.horizontal)
             .toolbar {

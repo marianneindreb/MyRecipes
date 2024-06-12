@@ -20,7 +20,7 @@ struct RecipeDetailView: View {
                         .offset(y: -reader.frame(in: .global).minY)
                         .frame(width: UIScreen.main.bounds.width, height: reader.frame(in: .global).minY > 0 ? reader.frame(in: .global).minY + 300 : 300)
                 } else {
-                    Image(systemName: "photo")
+                    Image("mat")
                         .resizable()
                         .scaledToFill()
                         .offset(y: -reader.frame(in: .global).minY)
@@ -31,29 +31,32 @@ struct RecipeDetailView: View {
             .frame(height: 300)
             
             VStack(alignment: .leading) {
-                
-                HStack {
                     if let category = recipe.category {
                         Text(category.title)
                             .font(.caption)
                             .foregroundStyle(.gray)
                             .padding(.bottom, 1)
                     }
-                    Spacer()
-                    
-                }
+                
                 Text(recipe.title)
                     .font(.title)
                     .fontWeight(.bold)
                 
+                Text(recipe.shortDescription)
+                    .font(.subheadline)
+                    .foregroundColor(.gray)
+                    .padding(.bottom, 10)
+                
                 HStack {
-                    Text(recipe.shortDescription)
+                    Text(recipe.preparationTime)
                         .font(.subheadline)
-                        .foregroundColor(.gray)
+                     //   .foregroundColor(.gray)
                     Spacer()
-                    Text("\(recipe.preparationTime)")
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
+                    if !recipe.servings.isEmpty {
+                        Text(recipe.servings)
+                            .font(.subheadline)
+                          //  .foregroundColor(.gray)
+                    }
                 }
                 
                 Divider()
@@ -76,6 +79,7 @@ struct RecipeDetailView: View {
                         .font(.body)
                         .padding(.bottom)
                 }
+                Spacer()
             }
             .padding(.top, 25)
             .padding(.horizontal)
