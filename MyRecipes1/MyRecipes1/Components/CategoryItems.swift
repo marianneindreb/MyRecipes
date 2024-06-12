@@ -29,7 +29,7 @@ struct CategoryItems: View {
                             }
                         }
                         Text(category.title)
-                            .font(.caption)
+                            .font(.custom("Glacialindifference-Regular", size: 14))
                     }
                     .padding(.bottom)
                 }

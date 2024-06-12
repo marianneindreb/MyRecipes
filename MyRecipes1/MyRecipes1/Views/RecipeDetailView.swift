@@ -33,29 +33,27 @@ struct RecipeDetailView: View {
             VStack(alignment: .leading) {
                     if let category = recipe.category {
                         Text(category.title)
-                            .font(.caption)
+                            .font(.custom("Glacialindifference-Regular", size: 16))
                             .foregroundStyle(.gray)
                             .padding(.bottom, 1)
                     }
                 
                 Text(recipe.title)
-                    .font(.title)
-                    .fontWeight(.bold)
+                    .font(.custom("Glacialindifference-Bold", size: 26))
+                    .padding(.bottom, 1)
                 
                 Text(recipe.shortDescription)
-                    .font(.subheadline)
+                    .font(.custom("Glacialindifference-Regular", size: 18))
                     .foregroundColor(.gray)
                     .padding(.bottom, 10)
                 
                 HStack {
                     Text(recipe.preparationTime)
-                        .font(.subheadline)
-                     //   .foregroundColor(.gray)
+                        .font(.custom("Glacialindifference-Regular", size: 16))
                     Spacer()
                     if !recipe.servings.isEmpty {
                         Text(recipe.servings)
-                            .font(.subheadline)
-                          //  .foregroundColor(.gray)
+                            .font(.custom("Glacialindifference-Regular", size: 16))
                     }
                 }
                 
@@ -63,20 +61,18 @@ struct RecipeDetailView: View {
                 
                 if !recipe.ingredient.isEmpty {
                     Text("Ingredients:")
-                        .font(.subheadline)
-                        .bold()
+                        .font(.custom("Glacialindifference-Bold", size: 18))
                         .padding(.top, 10)
                     Text(recipe.ingredient)
-                        .font(.body)
+                        .font(.custom("Glacialindifference-Regular", size: 16))
                         .padding(.bottom, 20)
                 }
                 
                 if !recipe.directions.isEmpty {
                     Text("Directions:")
-                        .font(.subheadline)
-                        .bold()
+                        .font(.custom("Glacialindifference-Bold", size: 18))
                     Text(recipe.directions)
-                        .font(.body)
+                        .font(.custom("Glacialindifference-Regular", size: 16))
                         .padding(.bottom)
                 }
                 Spacer()
@@ -155,17 +151,5 @@ struct RecipeDetailView: View {
         } message: {
             Text("This will permanently delete \(recipe.title)")
         }
-    }
-}
-
-#Preview {
-    do {
-        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try ModelContainer(for: Recipe.self, configurations: config)
-        let example = Recipe(title: "Mammas julekjeks", shortDescription: "Med mandler og sjokolade", imageData: nil, category: nil, preparationTime: "20 min", directions: "1. Sett ovnen på 180°C varmluft, eller 200°C over- og undervarme. 2.  Rør smør, sukker, og brunt sukker mykt og kremet. Tilsett egg og eggeplomme, og rør i 2-3 minutter. Bland mel og bakepulver sammen i en skål, og tilsett i deigen. 3. Rør til slutt raskt inn hakket sjokolade og mandler. Del deigen i 20 deler, og trill dem til kuler. Legg kulene med god avstand til hverandre på en stekeplate med bakepapir, og gi dem et lett trykk. Stek cookies'ene i 10-12 minutter til de er lysebrune. Avkjøles på rist", ingredient: "250 gram sukker, 1 ts vaniljesukker, 250 gram malte mandler,150 gram malt kokesjokolade, 2 egg")
-        return RecipeDetailView(recipe: example)
-            .modelContainer(container)
-    } catch {
-        fatalError("Failed to create model container")
     }
 }

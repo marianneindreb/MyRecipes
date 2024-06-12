@@ -1,53 +1,58 @@
-
 import SwiftUI
 import SwiftData
 
 struct MyRecipesView: View {
     @Environment(\.modelContext) var modelContext
-    
     @Query var recipes: [Recipe]
     @Query var categories: [Category]
     @State var searchText = ""
-    
-    
+
     var body: some View {
-        
-        
         ZStack {
             Color.bg.edgesIgnoringSafeArea(.all)
-            
-            ScrollView (showsIndicators: false){
-                VStack (alignment: .leading) {
-                    Text("Categories")
-                        .font(.caption)
-                        .foregroundStyle(Color.gray)
-                        .padding(.top)
-                    
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        CategoryItems()
-                    }
-                    
-                    HStack{
-                        Text("Recipes")
-                            .font(.caption)
+
+            ScrollView(showsIndicators: false) {
+                VStack(alignment: .leading) {
+                    if !categories.isEmpty {
+                        Text("Categories")
+                            .font(.custom("Glacialindifference-Bold", size: 14))
                             .foregroundStyle(Color.gray)
-                        Spacer()
-                        Image(systemName: "magnifyingglass")
+                            .padding(.top)
+
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            CategoryItems()
+                        }
                     }
-                    
-                    ForEach(recipes) { recipe in
-                        RecipeCardView(recipe: recipe)
-                        
+
+                    if !recipes.isEmpty {
+                        Text("Recipes")
+                            .font(.custom("Glacialindifference-Bold", size: 14))
+                            .foregroundStyle(Color.gray)
+                    }
+
+                    if recipes.isEmpty {
+                        VStack {
+                            Text("No recipes added")
+                                .font(.custom("Glacialindifference-Bold", size: 18))
+                                .padding(.top, 20)
+                            Text("Click the + button to add a recipe")
+                                .font(.custom("Glacialindifference-Regular", size: 16))
+                                .foregroundStyle(Color.gray)
+                        }
+                        .padding(.top, 40)
+                        .frame(maxWidth: .infinity, alignment: .center)
+                    } else {
+                        ForEach(recipes) { recipe in
+                            RecipeCardView(recipe: recipe)
+                        }
                     }
                 }
             }
-            
             .padding(.horizontal)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Text("My Recipes")
-                        .bold()
-                        .font(.title2)
+                        .font(.custom("Glacialindifference-Bold", size: 24))
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     NavigationLink(destination: EditRecipeView()) {
