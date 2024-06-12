@@ -27,7 +27,7 @@ struct RecipeCardView: View {
                     HStack {
                         if let category = recipe.category {
                             Text(category.title)
-                                .font(.caption)
+                                .font(.custom("Glacialindifference-Regular", size: 14))
                                 .foregroundStyle(.gray)
                         }
                         Spacer()
@@ -37,24 +37,22 @@ struct RecipeCardView: View {
                     }
                     
                     Text(recipe.title)
-                        .font(.headline)
-                        .bold()
+                        .font(.custom("Glacialindifference-Bold", size: 16))
                     
                     Text(recipe.shortDescription)
-                        .font(.caption)
+                        .font(.custom("Glacialindifference-Regular", size: 14))
                     
                     Spacer()
                     
                     HStack {
                         if !recipe.preparationTime.isEmpty {
                             Text(recipe.preparationTime)
-                                .font(.caption)
+                                .font(.custom("Glacialindifference-Regular", size: 14))
                         }
                         Spacer()
                         if !recipe.servings.isEmpty {
                             Text(recipe.servings)
-                                .font(.caption)
-                                .bold()
+                                .font(.custom("Glacialindifference-Bold", size: 14))
                                 .padding(10)
                         }
                     }

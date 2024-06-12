@@ -1,8 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "27ab3785352e64f357bc1608bae74361.png",
-      "idiom" : "universal"
+      "filename" : "mat.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {
