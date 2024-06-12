@@ -39,7 +39,10 @@ struct EditRecipeView: View {
                     TextField("Short description", text: $recipe.shortDescription)
                 }
                 Section(header: Text("Estimated time")) {
-                    TextField("time", text: $recipe.preparationTime)
+                    TextField("preperation + cooking time", text: $recipe.preparationTime)
+                }
+                Section(header: Text("Servings")) {
+                    TextField("Total servings", text: $recipe.servings)
                 }
                 Section (header: Text("Category")) {
                     if !categories.isEmpty {

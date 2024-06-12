@@ -11,17 +11,19 @@ struct RecipeCardView: View {
                     Image(uiImage: uiImage)
                         .resizable()
                         .scaledToFill()
-                        .frame(width: 120, height: 140)
+                        .frame(width: 105, height: 130)
                         .cornerRadius(8)
+                        .padding(5)
                 } else {
                     Image("mat")
                         .resizable()
                         .scaledToFill()
-                        .frame(width: 120, height: 140)
+                        .frame(width: 105, height: 130)
                         .cornerRadius(8)
+                        .padding(5)
                 }
+                
                 VStack(alignment: .leading) {
-                    
                     HStack {
                         if let category = recipe.category {
                             Text(category.title)
@@ -33,6 +35,7 @@ struct RecipeCardView: View {
                             .font(.system(size: 14))
                             .padding(5)
                     }
+                    
                     Text(recipe.title)
                         .font(.headline)
                         .bold()
@@ -42,14 +45,18 @@ struct RecipeCardView: View {
                     
                     Spacer()
                     
-                    if !recipe.preparationTime.isEmpty {
-                        HStack {
-                            Image(systemName: "clock")
-                                .foregroundStyle(.yellow)
+                    HStack {
+                        if !recipe.preparationTime.isEmpty {
                             Text(recipe.preparationTime)
                                 .font(.caption)
                         }
-                        .padding(.bottom, 5)
+                        Spacer()
+                        if !recipe.servings.isEmpty {
+                            Text(recipe.servings)
+                                .font(.caption)
+                                .bold()
+                                .padding(10)
+                        }
                     }
                     
                 }
